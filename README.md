@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Run npm install
 
 ## Contact form submission Email Service
-Link: https://github.com/iliasanthimos/smelly-cat-email-service
+https://github.com/iliasanthimos/smelly-cat-email-service
 
 ## Development server
 
