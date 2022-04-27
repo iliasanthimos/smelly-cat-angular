@@ -1,0 +1,96 @@
+<form (ngSubmit)="contactForm.valid && onSubmit()" #contactForm="ngForm" novalidate>
+    <div [hidden]="submitted">
+        <div class="form-group row row-margin-bottom-32">
+            <label for="name" class="col-3 col-form-label label">Your Full name</label>
+            <div class="col-9">
+                <input type="text" placeholder="Type your name" class="form-control text" id="name" required [(ngModel)]="model.name" #name="ngModel" [ngClass]="{ 'is-invalid': contactForm.submitted && name.invalid }" name="name">
+                <div *ngIf="contactForm.submitted && name.invalid" class="invalid-feedback">
+                    <div *ngIf="name.errors">Your Full Name is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="email" class="col-3 col-form-label label">Your Email</label>
+            <div class="col-9">
+                <input type="text" placeholder="Type your email" class="form-control text" id="email" required email [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': contactForm.submitted && email.invalid }" name="email">
+                <div *ngIf="contactForm.submitted && email.invalid" class="invalid-feedback">
+                    <div *ngIf="email.errors">Your Email is required</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="row justify-content-between row-margin-bottom-32">
+            <div class="form-group col-5">
+                <label class="label" for="city">City</label>
+                <input type="text" placeholder="ex. Thessaloniki" class="form-control text" id="city" required [(ngModel)]="model.city" #city="ngModel" [ngClass]="{ 'is-invalid': contactForm.submitted && city.invalid }" name="city">
+                <div *ngIf="contactForm.submitted && city.invalid" class="invalid-feedback">
+                    <div *ngIf="city.errors">Your City is required</div>
+                </div>
+            </div>
+            <div class="form-group col-5">
+                <label class="label" for="postalCode">Postal Code</label>
+                <input type="number" placeholder="ex. 54658" class="form-control text" id="postalCode" required [(ngModel)]="model.postalCode" #postalCode="ngModel" [ngClass]="{ 'is-invalid': contactForm.submitted && postalCode.invalid }" name="postalCode">
+                <div *ngIf="contactForm.submitted && postalCode.invalid" class="invalid-feedback">
+                    <div *ngIf="postalCode.errors">Your Postal Code is required</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-7 row-margin-bottom-36">
+            <label class="label" for="address">Address</label>
+            <input type="text" placeholder="ex. Thessaloniki" class="form-control text" id="address" required [(ngModel)]="model.address" #address="ngModel" [ngClass]="{ 'is-invalid': contactForm.submitted && address.invalid }" name="address">
+            <div *ngIf="contactForm.submitted && address.invalid" class="invalid-feedback">
+                <div *ngIf="address.errors">Your Address is required</div>
+            </div>
+        </div>
+
+        <div class="form-group row-margin-bottom-26 ">
+            <label class="label" for="message">Your Message</label>
+            <small id="messageHelpInline" class="optional">
+                            Optional
+                     </small>
+            <textarea style="height: 168px;" class="form-control text" name="message" id="message" cols="30" rows="10" [(ngModel)]="model.message" name="message" placeholder="Your message"></textarea>
+        </div>
+        <div class="form-group form-check row-margin-bottom-46">
+            <input type="checkbox" name="acceptTerms" id="acceptTerms" class="form-check-input" [(ngModel)]="model.acceptTerms" #acceptTerms="ngModel" [ngClass]="{ 'is-invalid': contactForm.submitted && acceptTerms.invalid }" required>
+            <label for="acceptTerms" class="form-check-label label" style="font-weight: 400;">I agree with the
+                            Terms & Conditions</label>
+            <div *ngIf="contactForm.submitted && acceptTerms.invalid" class="invalid-feedback">Accept Ts & Cs is required</div>
+        </div>
+
+        <div class="from-group">
+            <button type="submit" class="button-fill ">Send!</button>
+        </div>
+
+    </div>
+    <div [hidden]="!submitted">
+        <h2>You submitted the following:</h2>
+        <div class="row">
+            <div class="col-xs-3">Name</div>
+            <div class="col-xs-9">{{ model.name }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">Email</div>
+            <div class="col-xs-9">{{ model.email }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">City</div>
+            <div class="col-xs-9">{{ model.city }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">Postal Code</div>
+            <div class="col-xs-9">{{ model.postalCode }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">Address</div>
+            <div class="col-xs-9">{{ model.address }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">Your Message</div>
+            <div class="col-xs-9">{{ model.message }}</div>
+        </div>
+        <br>
+
+    </div>
